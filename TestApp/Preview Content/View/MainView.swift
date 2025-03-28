@@ -12,6 +12,7 @@ struct MainView: View {
     @AppStorage("79xt546scг5641shouldShowOnboarding") var shouldShowOnboarding: Bool = true
     @State private var tabSelection = 0
     @State private var textInput = ""
+    @State private var navigateToSecondView = false
 //    @Binding var isTabBarHidden: Bool
     let users: [User] = [
         User(name: "Profile_1", imageName: "onboardingImage-2"),
@@ -36,40 +37,62 @@ struct MainView: View {
                     .font(.system(size: 13, weight: .regular))
                     .padding(.bottom, 28)
                 ZStack(alignment: .trailing) {
-                    TextField("", text: $textInput, prompt: Text("User name or URL").foregroundColor(.gray))
-                        .padding(.leading, 36)
-                        .padding(.trailing, 40)
-                        .frame(height: 50)
-                        .background(Color.white)
-                        .overlay(
-                            HStack {
-                                Image(systemName: "magnifyingglass")
-                                    .foregroundColor(.gray)
-                                    .padding(.leading, 10)
-                                Spacer()
-                                
-                                Button(action: {
-                                    if let clipboardText = UIPasteboard.general.string {
-                                        textInput = clipboardText
+//                        NavigationLink(destination: Search()) {
+                            TextField("", text: $textInput, prompt: Text("User name or URL")
+//                    Text("User name or URL")
+                                .foregroundColor(.gray)
+                    )
+                            .padding(.leading, 36)
+                            .padding(.trailing, 40)
+                            .frame(height: 50)
+                            //                        .background(Color.white)
+                            .background(Color.gray.opacity(0.1))
+                            .overlay(
+                                HStack {
+                                    Image(systemName: "magnifyingglass")
+                                        .foregroundColor(.gray)
+                                        .padding(.leading, 10)
+                                    Spacer()
+                                    
+                                    Button(action: {
+                                        if let clipboardText = UIPasteboard.general.string {
+                                            textInput = clipboardText
+                                        }
+                                    }) {
+                                        Image(systemName: "doc.on.doc")
+                                            .foregroundColor(Color(hex: "#C83E3E"))
+                                            .padding(8)
+                                            .background(Color.gray.opacity(0.1))
                                     }
-                                }) {
-                                    Image(systemName: "doc.on.doc")
-                                        .foregroundColor(Color(hex: "#C83E3E"))
-                                        .padding(8)
+                                    .background(Color.white)
+                                    .cornerRadius(8)
+                                    .padding(.trailing, 8)
                                 }
-                                .background(Color.white)
-                                .cornerRadius(8)
-                                .padding(.trailing, 8)
-                            }
-                        )
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                        )
-                        .padding(.horizontal, 16)
-                    
+                            )
+                            
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                            )
+                            .padding(.horizontal, 16)
+//                        }
+                                            .onTapGesture {
+                                                print("TAPTF")
+                                                navigateToSecondView = true
+                                            }
+                    NavigationLink(
+                                           destination: Search(),
+                                           isActive: $navigateToSecondView,
+                                           label: { EmptyView() }
+                                       )
                 }
+//                NavigationLink(
+//                                destination: Search(),
+//                                isActive: $navigateToSecondView,
+//                                label: { EmptyView() } // Скрытая ссылка для перехода
+//                            )
+//                    .navigationDestination(isPresented: $navigateToSecondView, destination: Search())
                 .padding(.bottom, 28)
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(users) { profile in
@@ -134,20 +157,10 @@ struct MainView: View {
 //    tabBarState.isHidden = true
     print("MAIN_onDisappear")
 }
-                
-                
+     
         }
             }
-  
         }
-
-               
-//        .fullScreenCover(isPresented: $shouldShowOnboarding) {
-//            OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
-//        }
-        
-
-
 
 #Preview {
     MainView().environmentObject(TabBarState())

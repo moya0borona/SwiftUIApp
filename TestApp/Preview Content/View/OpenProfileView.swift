@@ -107,9 +107,8 @@ struct OpenProfileView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(users) { post in
-                            NavigationLink(destination: OpenStory(user: User(name: "1223", imageName: "image_2"))
-//                            .onAppear { tabBarState.isHidden = true } // Скрываем TabBar
-//                                .onDisappear { tabBarState.isHidden = false }
+                            NavigationLink(destination: OpenStory(user: User(name: "1223", imageName: "image_2")).navigationBarHidden(true)
+                                
                             ) {
                                 VStack {
                                     
@@ -141,8 +140,6 @@ struct OpenProfileView: View {
                             ForEach(users) { post in
                                 GeometryReader { proxi in
                                     let width = proxi.frame(in: .global).width
-                                    
-                                    
                                     Image(post.imageName)
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)

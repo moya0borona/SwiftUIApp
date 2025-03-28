@@ -21,8 +21,6 @@ struct OpenStory: View {
     @State private var canProceed = false
     
     var body: some View {
-        //        Image("mrp")
-     
                 ZStack {
                     TabView(selection: $currentPageCount) {
                         ForEach(onboardingPages.indices, id: \.self) { index in
@@ -31,8 +29,8 @@ struct OpenStory: View {
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                    //                .disabled(true)
-                    //            .ignoresSafeArea()
+//                                    .disabled(true)
+//                                .ignoresSafeArea()
                     VStack {
                         Spacer()
                         PageIndicator(currentPage: currentPageCount)
@@ -47,15 +45,10 @@ struct OpenStory: View {
                                 .background(Color(hex: "#C83E3E"))
                                 .cornerRadius(24)
                         }
-                        
-                        
                     }
                 }.background(.black)
-                
             }
-     
-        
-    }
+         }
 
 struct PageIndicator: View {
     var currentPage: Int
@@ -72,6 +65,7 @@ struct PageIndicator: View {
 struct OnboardingPage: View {
     let data: User
 //        @Binding var shouldShowOnboarding: Bool
+    @Environment(\.dismiss) private var dismiss
     @Binding var isPresented: Bool
     var body: some View {
             ZStack {
@@ -89,13 +83,10 @@ struct OnboardingPage: View {
                             .frame(width: 36, height: 36)
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.red.opacity(0.2), lineWidth: 2))
-                            
-                        
                         Text("@\(data.name)")
                             .font(.system(size: 12))
                             .foregroundColor(.white)
                             .frame(width: 87, height: 52, alignment: .leading)
-//                            .background(Color(hex: "#9D9C9C14"))
                             .cornerRadius(10)
                             .padding(8)
                         
@@ -110,6 +101,7 @@ struct OnboardingPage: View {
                         .padding()
                         Button(action: {
                             isPresented = false
+                            dismiss()
                         }, label: {
                             Image(systemName: "xmark")
                                 .foregroundStyle(Color(.white))
@@ -117,13 +109,8 @@ struct OnboardingPage: View {
                         })
                     }
                     .padding(.horizontal)
-                    
-                    //                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                    //                Spacer()
                 }.padding(.bottom, 690)
-                
             }
-
         }
     }
 

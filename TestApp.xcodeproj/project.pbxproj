@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4917B4BC2D96B29900BD2B39 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917B4BB2D96B29800BD2B39 /* Search.swift */; };
 		491E1FDE2D94BE2B00943A59 /* OpenStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E1FDD2D94BE2B00943A59 /* OpenStory.swift */; };
 		491E1FF22D9554BB00943A59 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E1FF12D9554BB00943A59 /* ViewModel.swift */; };
 		49424C892D933A4D00E08727 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49424C832D933A4D00E08727 /* Preview Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4917B4BB2D96B29800BD2B39 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		491E1FDD2D94BE2B00943A59 /* OpenStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenStory.swift; sourceTree = "<group>"; };
 		491E1FF12D9554BB00943A59 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		49424C562D932E5200E08727 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +148,7 @@
 			children = (
 				49424C862D933A4D00E08727 /* ContentView.swift */,
 				49424C8F2D934E4E00E08727 /* TabBarView.swift */,
+				4917B4BB2D96B29800BD2B39 /* Search.swift */,
 				49B277692D9690A5008EB814 /* SettingsHideBar.swift */,
 				49B2776B2D969666008EB814 /* TabBarState.swift */,
 				49424C922D9351B300E08727 /* MainView.swift */,
@@ -314,6 +317,7 @@
 				49424C9B2D93E9D600E08727 /* UserModel.swift in Sources */,
 				49424C8E2D93477C00E08727 /* ExtensionColor.swift in Sources */,
 				49B2776E2D969E8D008EB814 /* TabBarVisibilityPreferenceKey.swift in Sources */,
+				4917B4BC2D96B29900BD2B39 /* Search.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
