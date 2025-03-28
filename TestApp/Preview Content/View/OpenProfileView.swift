@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OpenProfileView: View {
-//    @EnvironmentObject var tabBarState: TabBarState
+    @EnvironmentObject var tabBarState: TabBarState
     @State var selectedTab: String = "Posts"
     @Namespace var animation
 //    @Binding var isTabBarHidden: Bool
@@ -107,9 +107,10 @@ struct OpenProfileView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(users) { post in
-                            NavigationLink(destination: OpenStory(user: User(name: "1223", imageName: "image_2")).onAppear {
-//                                tabBarState.isHidden = true // Скрываем TabBar в OpenStory
-                            }) {
+                            NavigationLink(destination: OpenStory(user: User(name: "1223", imageName: "image_2"))
+//                            .onAppear { tabBarState.isHidden = true } // Скрываем TabBar
+//                                .onDisappear { tabBarState.isHidden = false }
+                            ) {
                                 VStack {
                                     
                                     Image(post.imageName)
@@ -162,8 +163,9 @@ struct OpenProfileView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 32, height: 32))
-            .tabBarHidden(true)
-                    }
+//                    .onAppear { tabBarState.isHidden = true } // Скрываем TabBar при входе
+//                    .onDisappear { tabBarState.isHidden = false }
+        }
             
         }
     }
@@ -201,5 +203,6 @@ struct TabBArButtun: View {
 
 
 #Preview {
-    OpenProfileView(user: User(name: "Alice", imageName: "image_2"))
+    OpenProfileView(user: User(name: "Alice", imageName: "image_2")).environmentObject(TabBarState())
+        
 }

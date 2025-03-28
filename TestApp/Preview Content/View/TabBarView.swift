@@ -9,9 +9,9 @@ import SwiftUI
 
 
 struct TabBarView: View {
-//    @StateObject private var tabBarState = TabBarState()
+    @StateObject private var tabBarState = TabBarState()
     @State private var tabSelection = "Main"
-    @State private var isTabBarHidden = false
+//    @State private var isTabBarHidden = false
 //    @Environment(\.dismiss) var dissmiss
 //    @Environment(\.presentationMode) var presentationMode
     let tabs = ["Main","Collections","Upscale","Settings"]
@@ -23,8 +23,8 @@ struct TabBarView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $tabSelection) {
                 MainView()
-                    .tabBarHidden(false)
-//                    .environmentObject(tabBarState)
+//                    .tabBarHidden(false)
+                    .environmentObject(tabBarState)
                     .tag("Main")
 //                    .onDisappear {
 //                        print("TabBarView disappeared")
@@ -36,11 +36,11 @@ struct TabBarView: View {
                 Text("Settings View")
                     .tag("Settings")
             }
-            .onPreferenceChange(TabBarVisibilityPreferenceKey.self) { value in
-                            withAnimation {
-                                isTabBarHidden = value
-                            }
-                        }
+//            .onPreferenceChange(TabBarVisibilityPreferenceKey.self) { value in
+//                            withAnimation {
+//                                isTabBarHidden = value
+//                            }
+//                        }
 //            .onChange(of: tabSelection) { newTab in
 //                print("Switched to \(newTab)")
 //            }
@@ -52,7 +52,7 @@ struct TabBarView: View {
 //                       }
 //            }
                          
-            if !isTabBarHidden {
+            if !tabBarState.isHidden {
                 HStack {
                     ForEach(tabs, id: \.self) { tab in
                         Spacer()
@@ -67,6 +67,7 @@ struct TabBarView: View {
                 //                .animation(.easeInOut(duration: 0.1), value: isTabBarHidden)
             }
             }
+        .environmentObject(tabBarState)
         }
         
         }

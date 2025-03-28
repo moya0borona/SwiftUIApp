@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-//    @EnvironmentObject var tabBarState: TabBarState
+    @EnvironmentObject var tabBarState: TabBarState
     @AppStorage("79xt546scг5641shouldShowOnboarding") var shouldShowOnboarding: Bool = true
     @State private var tabSelection = 0
     @State private var textInput = ""
@@ -73,12 +73,14 @@ struct MainView: View {
                 .padding(.bottom, 28)
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(users) { profile in
-                        NavigationLink(destination: OpenProfileView(user: profile).onAppear {
-//                            tabBarState.isHidden = true
+                        NavigationLink(destination: OpenProfileView(user: profile)
+                            .onAppear
+                                       {
+                            tabBarState.isHidden = true
                         }
-                            .onDisappear {
+//                            .onDisappear {
 //                            tabBarState.isHidden = false
-                        }
+//                        }
                         ) {
                             VStack {
                                 Image(profile.imageName)
@@ -123,9 +125,14 @@ struct MainView: View {
                 .navigationBarItems(trailing: Image("proButton")
                     .resizable().scaledToFit().frame(width: 82, height: 32))
 .onAppear {
-//    if tabBarState.isHidden == false { 
-//            tabBarState.isHidden = false
+    print("MAINo_onAppear")
+//    if tabBarState.isHidden == false {
+            tabBarState.isHidden = false
 //        }  // Показываем TabBar, когда возвращаемся в MainView
+}
+.onDisappear {
+//    tabBarState.isHidden = true
+    print("MAIN_onDisappear")
 }
                 
                 
