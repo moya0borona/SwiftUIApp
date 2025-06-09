@@ -10,8 +10,10 @@ import SwiftUI
 struct OpenProfileView: View {
     @EnvironmentObject var tabBarState: TabBarState
     @State var selectedTab: String = "Posts"
+    @StateObject var viewModel = ProfileViewModel()
+    @Environment(\.dismiss) var dismiss
+    @State private var showPaywall = false
     @Namespace var animation
-//    @Binding var isTabBarHidden: Bool
     let user: User
     let users: [User] = [
         User(name: "Story", imageName: "onboardingImage-2"),
@@ -33,6 +35,29 @@ struct OpenProfileView: View {
     ]
     var body: some View {
         NavigationStack {
+            VStack {
+                CustomNavigationBar(
+                    title: "Profile",
+                    leadingButtonAction: {
+                        dismiss()
+                    },
+                    trailingButtonAction: {
+                        
+                    },
+                    trailingButton: AnyView(
+                        Button(action: {
+                            showPaywall = true
+                        }) {
+                            Image("proButton2")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 32, height: 32)
+                        }
+                    )
+                )
+            }.sheet(isPresented: $showPaywall) {
+                PaywallView()
+            }
             VStack(spacing: 20) {
                 HStack(alignment: .top) {
                     Image(user.imageName)
@@ -57,23 +82,19 @@ struct OpenProfileView: View {
                                 Text("@\(user.name)")
                                     .font(.system(size: 12, weight: .regular))
                                     .foregroundColor(.gray)
-                                    
                             }
                             .padding()
                         }
-                        
                         .frame(width: 169, height: 52, alignment: .leading)
                         .background(Color(hex: "#9D9C9C14"))
                         .cornerRadius(10)
-                        
-                        Button { 
+                        Button {
                             print("Edit button was tapped")
                         } label: {
                             HStack {
                                 Image(systemName: "bookmark.fill")
                                     .foregroundStyle(Color(hex: "#C83E3E"))
                             }
-                            
                         }
                         .frame(width: 52, height: 52, alignment: .center)
                         .background(Color(hex: "#9D9C9C14"))
@@ -92,26 +113,23 @@ struct OpenProfileView: View {
                                             .foregroundStyle(Color(hex: "#C83E3E"))
                                         
                                     }
-                                    
                                 }
                                 .frame(width: 229, height: 48, alignment: .center)
                                 .background(Color(hex: "#9D9C9C14"))
                                 .cornerRadius(10)
                             }
                         }
-             
-                   
             }
-               
                 .padding()
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(users) { post in
-                            NavigationLink(destination: OpenStory(user: User(name: "1223", imageName: "image_2")).navigationBarHidden(true)
-                                
+                        ForEach(viewModel.users) { post in
+                            NavigationLink(destination: StoryView().navigationBarHidden(true)
+                                .onAppear {
+                                    tabBarState.isHidden = true
+                                }
                             ) {
                                 VStack {
-                                    
                                     Image(post.imageName)
                                         .resizable()
                                         .scaledToFill()
@@ -124,80 +142,51 @@ struct OpenProfileView: View {
                                         .font(.caption)
                                         .foregroundColor(.black)
                                 }
-                                
                             }
                         }
                     }
                 }
-                
                 HStack {
-                    TabBArButtun(text: "Posts", animation: animation, selectedTab: $selectedTab)
-                    TabBArButtun(text: "Reels", animation: animation, selectedTab: $selectedTab)
+                    TabBarButton(text: "Posts", selectedTab: $selectedTab)
+                    TabBarButton(text: "Reels", selectedTab: $selectedTab)
                 }
-                ScrollView(showsIndicators: false) {
-                    ZStack {
-                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 2), count: 3), spacing: 2, content: {
-                            ForEach(users) { post in
-                                GeometryReader { proxi in
-                                    let width = proxi.frame(in: .global).width
-                                    Image(post.imageName)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: width, height: 114, alignment: .center)
-                                        .cornerRadius(0)
-                                }
-                                .frame(height: 114)
-                                .cornerRadius(12)
-                            }
-                        })
-                    }
-                }
-//                Spacer()
+                ScrollView {
+                                   switch selectedTab {
+                                   case "Posts":
+                                       PostsView(users: viewModel.users)
+                                   case "Reels":
+                                       ReelsView(users: viewModel.users)
+                                   default:
+                                       Text("Выберите вкладку")
+                                   }
+                               }
             }
-            .padding()
-            .navigationBarTitle(user.name, displayMode: .inline)
-            .navigationBarItems(trailing: Image("proButton2")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 32, height: 32))
-//                    .onAppear { tabBarState.isHidden = true } // Скрываем TabBar при входе
-//                    .onDisappear { tabBarState.isHidden = false }
+            .padding(.horizontal)
+            .padding(.bottom)
         }
-            
         }
     }
 
-    
-struct TabBArButtun: View {
-    var text: String
-    var animation: Namespace.ID
+struct TabBarButton: View {
+    let text: String
     @Binding var selectedTab: String
-    
+
     var body: some View {
-        Button(action: {
+        Button {
             withAnimation(.easeInOut) {
                 selectedTab = text
             }
-        }, label: {
-            VStack(spacing: 12) {
+        } label: {
+            VStack(spacing: 8) {
                 Text(text)
                     .foregroundColor(selectedTab == text ? .primary : .gray)
-                ZStack {
-                    if selectedTab == text {
-                        Rectangle()
-                            .fill(Color.primary)
-                            .matchedGeometryEffect(id: "TAB", in: animation)
-                    } else {
-                        Rectangle()
-                            .fill(Color.clear)
-                    }
-                }
-                .frame(height: 1)
+                Rectangle()
+                    .fill(selectedTab == text ? Color.primary : Color.clear)
+                    .frame(height: 2)
             }
-        })
+        }
     }
-    }
-
+}
 
 #Preview {
     OpenProfileView(user: User(name: "Alice", imageName: "image_2")).environmentObject(TabBarState())

@@ -12,14 +12,10 @@ let onboardingPages: [User] = [
 ]
 
 struct OpenStory: View {
-    //    @Binding var shouldShowOnboarding: Bool
-//    @Environment(\.dismiss) var dissmiss
     let user: User
-//    @StateObject var viewModel = ProfileViewModel()
     @State private var currentPageCount = 0
     @State private var isPresented = false
     @State private var canProceed = false
-    
     var body: some View {
                 ZStack {
                     TabView(selection: $currentPageCount) {
@@ -29,14 +25,11 @@ struct OpenStory: View {
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-//                                    .disabled(true)
-//                                .ignoresSafeArea()
                     VStack {
                         Spacer()
                         PageIndicator(currentPage: currentPageCount)
                             .padding()
                         Button(action: {
-                          
                         })
                         {
                             Text("Save")
@@ -64,7 +57,6 @@ struct PageIndicator: View {
 }
 struct OnboardingPage: View {
     let data: User
-//        @Binding var shouldShowOnboarding: Bool
     @Environment(\.dismiss) private var dismiss
     @Binding var isPresented: Bool
     var body: some View {
@@ -73,9 +65,10 @@ struct OnboardingPage: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                    .padding(.bottom, 85)
+//                    .padding(.bottom, 85)
                     .ignoresSafeArea()
-                VStack() {
+                
+//                ZStack {
                     HStack {
                         Image(data.imageName)
                             .resizable()
@@ -109,10 +102,11 @@ struct OnboardingPage: View {
                         })
                     }
                     .padding(.horizontal)
-                }.padding(.bottom, 690)
+                }
+//                .padding(.bottom, 690)
             }
         }
-    }
+//    }
 
 #Preview {
     OpenStory(user: User(name: "bob", imageName: "mrp"))
