@@ -5,8 +5,6 @@
 //  Created by Андрей Андриянов on 08.04.2025.
 //
 
-// File: ImageSaver.swift
-
 import UIKit
 
 struct ImageStorySaver {

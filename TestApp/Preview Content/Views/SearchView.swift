@@ -14,23 +14,23 @@ struct SearchView: View {
     var body: some View {
         VStack {
             CustomNavigationBar(
-                         title: "Search",
-                         leadingButtonAction: {
-                             dismiss()
-                             tabBarState.isHidden = false
-                         },
-                         trailingButtonAction: {
-                         },
-                         trailingButton: AnyView(
-                             Button(action: {
-                             }) {
-                                 Image("proButton2")
-                                     .resizable()
-                                     .scaledToFit()
-                                     .frame(width: 32, height: 32)
-                             }
-                         )
-                     )
+                title: "Search",
+                leadingButtonAction: {
+                    dismiss()
+                    tabBarState.isHidden = false
+                },
+                trailingButtonAction: {
+                },
+                trailingButton: AnyView(
+                    Button(action: {
+                    }) {
+                        Image("proButton2")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 32, height: 32)
+                    }
+                )
+            )
             SearchTextField(textInput: $textInput)
                 .padding(.bottom, 20)
             Button(action: {
@@ -45,10 +45,8 @@ struct SearchView: View {
             }
             Spacer()
         }
-        
     }
-       
-    }
+}
 
 #Preview {
     SearchView()

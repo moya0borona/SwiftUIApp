@@ -11,14 +11,4 @@ struct User: Identifiable {
     let id = UUID()  
     let name: String
     let imageName: String
-    
 }
-
-
-//let users: [(String, String)] = [("Alice", "mrp"),
-//                                 ("Bob", "mrp"),
-//                                 ("Charlie", "mrp"),
-//                                 ("David", "mrp"),
-//                                 ("Emma", "mrp"),
-//                                 ("Frank", "mrp"),
-//                                 ("Grace", "mrp"),

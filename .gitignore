@@ -1,0 +1,6 @@
+# Xcode build artifacts
+build/
+DerivedData/
+
+# macOS system files
+.DS_Store

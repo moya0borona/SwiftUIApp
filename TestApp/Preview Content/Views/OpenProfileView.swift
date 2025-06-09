@@ -69,57 +69,57 @@ struct OpenProfileView: View {
                             Circle().stroke(Color.red.opacity(2), lineWidth: 2)
                         )
                     VStack {
-                    HStack {
-                        Button {
-                            print("Edit button was tapped")
-                        } label: {
-                            VStack {
-                                Text(user.name)
-                                    .font(.system(size: 16, weight: .regular))
-                                    .foregroundStyle(Color(hex: "#191919"))
-                                    .fontWeight(.bold)
-                                
-                                Text("@\(user.name)")
-                                    .font(.system(size: 12, weight: .regular))
-                                    .foregroundColor(.gray)
-                            }
-                            .padding()
-                        }
-                        .frame(width: 169, height: 52, alignment: .leading)
-                        .background(Color(hex: "#9D9C9C14"))
-                        .cornerRadius(10)
-                        Button {
-                            print("Edit button was tapped")
-                        } label: {
-                            HStack {
-                                Image(systemName: "bookmark.fill")
-                                    .foregroundStyle(Color(hex: "#C83E3E"))
-                            }
-                        }
-                        .frame(width: 52, height: 52, alignment: .center)
-                        .background(Color(hex: "#9D9C9C14"))
-                        .cornerRadius(10)
-                    }
-                            VStack {
-                                Button {
-                                    print("Edit button was tapped")
-                                } label: {
-                                    HStack {
-                                        Text("Save avatar")
-                                            .font(.system(size: 17, weight: .regular))
-                                            .fontWeight(.bold)
-                                            .foregroundStyle(Color(hex: "#C83E3E"))
-                                        Image(systemName: "arrow.down.to.line")
-                                            .foregroundStyle(Color(hex: "#C83E3E"))
-                                        
-                                    }
+                        HStack {
+                            Button {
+                                print("Edit button was tapped")
+                            } label: {
+                                VStack {
+                                    Text(user.name)
+                                        .font(.system(size: 16, weight: .regular))
+                                        .foregroundStyle(Color(hex: "#191919"))
+                                        .fontWeight(.bold)
+                                    
+                                    Text("@\(user.name)")
+                                        .font(.system(size: 12, weight: .regular))
+                                        .foregroundColor(.gray)
                                 }
-                                .frame(width: 229, height: 48, alignment: .center)
-                                .background(Color(hex: "#9D9C9C14"))
-                                .cornerRadius(10)
+                                .padding()
                             }
+                            .frame(width: 169, height: 52, alignment: .leading)
+                            .background(Color(hex: "#9D9C9C14"))
+                            .cornerRadius(10)
+                            Button {
+                                print("Edit button was tapped")
+                            } label: {
+                                HStack {
+                                    Image(systemName: "bookmark.fill")
+                                        .foregroundStyle(Color(hex: "#C83E3E"))
+                                }
+                            }
+                            .frame(width: 52, height: 52, alignment: .center)
+                            .background(Color(hex: "#9D9C9C14"))
+                            .cornerRadius(10)
                         }
-            }
+                        VStack {
+                            Button {
+                                print("Edit button was tapped")
+                            } label: {
+                                HStack {
+                                    Text("Save avatar")
+                                        .font(.system(size: 17, weight: .regular))
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(Color(hex: "#C83E3E"))
+                                    Image(systemName: "arrow.down.to.line")
+                                        .foregroundStyle(Color(hex: "#C83E3E"))
+                                    
+                                }
+                            }
+                            .frame(width: 229, height: 48, alignment: .center)
+                            .background(Color(hex: "#9D9C9C14"))
+                            .cornerRadius(10)
+                        }
+                    }
+                }
                 .padding()
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
@@ -151,26 +151,26 @@ struct OpenProfileView: View {
                     TabBarButton(text: "Reels", selectedTab: $selectedTab)
                 }
                 ScrollView {
-                                   switch selectedTab {
-                                   case "Posts":
-                                       PostsView(users: viewModel.users)
-                                   case "Reels":
-                                       ReelsView(users: viewModel.users)
-                                   default:
-                                       Text("Выберите вкладку")
-                                   }
-                               }
+                    switch selectedTab {
+                    case "Posts":
+                        PostsView(users: viewModel.users)
+                    case "Reels":
+                        ReelsView(users: viewModel.users)
+                    default:
+                        Text("Выберите вкладку")
+                    }
+                }
             }
             .padding(.horizontal)
             .padding(.bottom)
         }
-        }
     }
+}
 
 struct TabBarButton: View {
     let text: String
     @Binding var selectedTab: String
-
+    
     var body: some View {
         Button {
             withAnimation(.easeInOut) {
@@ -190,5 +190,5 @@ struct TabBarButton: View {
 
 #Preview {
     OpenProfileView(user: User(name: "Alice", imageName: "image_2")).environmentObject(TabBarState())
-        
+    
 }

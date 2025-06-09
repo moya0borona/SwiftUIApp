@@ -22,34 +22,31 @@ struct PostsView: View {
                         .frame(height: 114)
                         .cornerRadius(10)
                         .clipped()
-                   
-                            Button(action: {
-                                showAlert.toggle()
-//                                guard let image = image else { return }
-//                                let imageSaver = ImageSaver()
-//                                imageSaver.writeToPhotoAlbum(image: image)
-                            }) {
-                                Image(systemName: "arrow.down.to.line")
-                                    .foregroundStyle(.white)
-                                    .frame(width: 32, height: 32)
-                                    .background(Color(hex: "#00000066"))
-                                    .cornerRadius(8)
-                            }.padding()
+                    
+                    Button(action: {
+                        showAlert.toggle()
+                    }) {
+                        Image(systemName: "arrow.down.to.line")
+                            .foregroundStyle(.white)
+                            .frame(width: 32, height: 32)
+                            .background(Color(hex: "#00000066"))
+                            .cornerRadius(8)
+                    }.padding()
                         .alert(isPresented: $showAlert) {
-                                      Alert(
-                                          title: Text("Сохранить изображение?"),
-                                          message: Text("Вы хотите сохранить это изображение в галерею?"),
-                                          primaryButton: .default(Text("Да")) {
-                                              guard let image = image else { return }
-                                              let imageSaver = ImageSaver()
-                                              imageSaver.writeToPhotoAlbum(image: image)
-                                              isImageSaved = true
-                                          },
-                                          secondaryButton: .cancel {
-                                              // Действия при отмене
-                                          }
-                                      )
-                                  }
+                            Alert(
+                                title: Text("Сохранить изображение?"),
+                                message: Text("Вы хотите сохранить это изображение в галерею?"),
+                                primaryButton: .default(Text("Да")) {
+                                    guard let image = image else { return }
+                                    let imageSaver = ImageSaver()
+                                    imageSaver.writeToPhotoAlbum(image: image)
+                                    isImageSaved = true
+                                },
+                                secondaryButton: .cancel {
+                                    // Действия при отмене
+                                }
+                            )
+                        }
                 }
             }
         }

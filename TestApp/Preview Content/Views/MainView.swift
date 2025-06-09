@@ -15,7 +15,6 @@ struct MainView: View {
     @State private var navigateToSecondView = false
     @State private var showPaywall = false
 
-    //    @Binding var isTabBarHidden: Bool
     let users: [User] = [
         User(name: "Profile_1", imageName: "onboardingImage-2"),
         User(name: "Profile_2", imageName: "onboardingImage-2"),
@@ -43,7 +42,7 @@ struct MainView: View {
                     .onTapGesture {
                         print("TAPTF")
                         navigateToSecondView = true
-                    }.navigationDestination(isPresented: $navigateToSecondView, destination: { Search().navigationBarHidden(true)
+                    }.navigationDestination(isPresented: $navigateToSecondView, destination: { SearchView().navigationBarHidden(true)
                             .onAppear() {
                                 tabBarState.isHidden = true
                             }
@@ -74,7 +73,7 @@ struct MainView: View {
                     }
                 }
                 .padding(.horizontal, 40)
-//                .padding(.bottom, 31)
+                
                 HStack {
                     if users.count >= 8 {
                         Button(action: {

@@ -18,7 +18,7 @@ struct SearchTextField: View {
             .padding(.trailing, 40)
             .frame(height: 50)
             .background(Color.gray.opacity(0.1))
-
+            
             .overlay(
                 HStack {
                     Image(systemName: "magnifyingglass")

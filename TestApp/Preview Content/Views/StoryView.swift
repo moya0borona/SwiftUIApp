@@ -89,7 +89,7 @@ struct StoryView: View {
                                 .foregroundColor(index == currentIndex ? Color(hex: "#C83E3E") : Color(hex: "#C83E3E45"))
                         }
                     }
-                        .padding()
+                    .padding()
                     Button(action: {
                         showSaveOptions = true
                     }) {
@@ -137,7 +137,7 @@ struct StoryView: View {
 
 struct BlurView: UIViewRepresentable {
     var style: UIBlurEffect.Style = .systemMaterial
-
+    
     func makeUIView(context: Context) -> UIVisualEffectView {
         return UIVisualEffectView(effect: UIBlurEffect(style: style))
     }
