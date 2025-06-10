@@ -15,24 +15,7 @@ struct OpenProfileView: View {
     @State private var showPaywall = false
     @Namespace var animation
     let user: User
-    let users: [User] = [
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2"),
-        User(name: "Story", imageName: "onboardingImage-2")
-    ]
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -125,9 +108,6 @@ struct OpenProfileView: View {
                     HStack {
                         ForEach(viewModel.users) { post in
                             NavigationLink(destination: StoryView().navigationBarHidden(true)
-                                .onAppear {
-                                    tabBarState.isHidden = true
-                                }
                             ) {
                                 VStack {
                                     Image(post.imageName)

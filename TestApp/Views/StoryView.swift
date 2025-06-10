@@ -28,7 +28,7 @@ struct StoryView: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .clipped()
                         if !payState.isPaid && index != 0 {
-                            Color.black.opacity(0.3) // затемнение
+                            Color.black.opacity(0.3)
                             BlurView(style: .systemUltraThinMaterialDark)
                             VStack {
                                 Image(systemName: "sparkles")
