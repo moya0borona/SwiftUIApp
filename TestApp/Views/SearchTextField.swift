@@ -34,12 +34,12 @@ struct SearchTextField: View {
                     }) {
                         if textInput.isEmpty {
                             Image(systemName: "doc.on.doc")
-                                .foregroundColor(Color(hex: "#C83E3E"))
+                                .foregroundColor(AppColors.watermelonRed)
                                 .padding(8)
                                 .background(Color.gray.opacity(0.1))
                         } else {
                             Image(systemName: "x.circle.fill")
-                                .foregroundColor(Color(hex: "#C83E3E"))
+                                .foregroundColor(AppColors.watermelonRed)
                                 .padding(8)
                                 .background(Color.gray.opacity(0.1))
                         }

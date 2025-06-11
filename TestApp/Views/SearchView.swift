@@ -38,9 +38,9 @@ struct SearchView: View {
             })
             {
                 Text("Search")
-                    .foregroundStyle(Color(hex: "#FFFFFF"))
+                    .foregroundStyle(AppColors.white)
                     .frame(width: 358, height: 48)
-                    .background(Color(hex: "#C83E3E"))
+                    .background(AppColors.watermelonRed)
                     .cornerRadius(24)
             }
             Spacer()

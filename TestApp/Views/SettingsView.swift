@@ -20,10 +20,10 @@ struct SettingsRow: View {
                 Image(systemName: "chevron.right")
                     .frame(width: 24, height: 24)
             }
-            .foregroundColor(Color(hex: "#C83E3E"))
+            .foregroundColor(AppColors.watermelonRed)
             .padding(.vertical, 12)
             .padding(.horizontal, 16)
-            .background(Color(hex: "#9D9C9C14"))
+            .background(AppColors.spanishGrayPlus)
             .cornerRadius(10)
         }
     }
@@ -81,10 +81,10 @@ struct SettingsView: View {
                                 }  else {
                                 }
                             }
-                    }  .foregroundColor(Color(hex: "#C83E3E"))
+                    }  .foregroundColor(AppColors.watermelonRed)
                         .padding(.vertical, 12)
                         .padding(.horizontal, 16)
-                        .background(Color(hex: "#9D9C9C14"))
+                        .background(AppColors.spanishGrayPlus)
                         .cornerRadius(10)
                     
                     Button(action: {
@@ -103,10 +103,10 @@ struct SettingsView: View {
                                 Image(systemName: "chevron.right")
                             }
                         }
-                    }.foregroundColor(Color(hex: "#C83E3E"))
+                    }.foregroundColor(AppColors.watermelonRed)
                         .padding(.vertical, 12)
                         .padding(.horizontal, 20)
-                        .background(Color(hex: "#9D9C9C14"))
+                        .background(AppColors.spanishGrayPlus)
                         .cornerRadius(10)
                         .padding(.vertical, 8)
                     SettingsRow(iconName: "arrow.clockwise.icloud", title: "Restore purchases") {
@@ -142,7 +142,7 @@ struct SettingsView: View {
                         Spacer()
                         Text("App Version: 1.0.0")
                             .font(.system(size: 13, weight: .regular))
-                            .foregroundStyle(Color(hex: "#19191999"))
+                            .foregroundStyle(AppColors.eerieBlackPlus)
                         Spacer()
                     }
                     .padding()

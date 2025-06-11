@@ -82,7 +82,7 @@ struct MainView: View {
                                 Text("See all")
                                 Image(systemName: "chevron.forward")
                             }
-                            .foregroundStyle(Color(hex: "#191919"))
+                            .foregroundStyle(AppColors.eerieBlack)
                         }
                     }
                 }

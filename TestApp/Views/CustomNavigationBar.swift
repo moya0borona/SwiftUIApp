@@ -18,10 +18,10 @@ struct CustomNavigationBar: View {
                         Button(action: leadingButtonAction) {
                             HStack {
                                 Image(systemName: "chevron.left")
-                                    .foregroundColor(Color(hex: "#C83E3E"))
+                                    .foregroundColor(AppColors.watermelonRed)
                                     .imageScale(.large)
                                 Text("Back")
-                                    .foregroundColor(Color(hex: "#C83E3E"))
+                                    .foregroundColor(AppColors.watermelonRed)
                             }
                         }
                         .frame(width: 100, alignment: .leading)

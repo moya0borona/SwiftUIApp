@@ -33,7 +33,7 @@ struct StoryView: View {
                             VStack {
                                 Image(systemName: "sparkles")
                                     .font(.system(size: 40))
-                                    .foregroundColor(Color(hex: "#C83E3E"))
+                                    .foregroundColor(AppColors.watermelonRed)
                                     .padding()
                                 Text("Unlock with PRO")
                                     .foregroundColor(.white)
@@ -86,7 +86,7 @@ struct StoryView: View {
                         ForEach(0..<stories.count, id: \.self) { index in
                             Circle()
                                 .frame(width: 8, height: 8)
-                                .foregroundColor(index == currentIndex ? Color(hex: "#C83E3E") : Color(hex: "#C83E3E45"))
+                                .foregroundColor(index == currentIndex ? AppColors.watermelonRed : AppColors.watermelonRedPlus)
                         }
                     }
                     .padding()
@@ -94,9 +94,9 @@ struct StoryView: View {
                         showSaveOptions = true
                     }) {
                         Text("Save")
-                            .foregroundStyle(Color(hex: "#FFFFFF"))
+                            .foregroundStyle(AppColors.white)
                             .frame(width: 358, height: 48)
-                            .background(Color(hex: "#C83E3E"))
+                            .background(AppColors.watermelonRed)
                             .cornerRadius(24)
                     }
                     .confirmationDialog("Save media?", isPresented: $showSaveOptions, titleVisibility: .visible) {

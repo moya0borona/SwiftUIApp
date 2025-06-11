@@ -51,12 +51,12 @@ struct PaywallView: View {
                                 VStack {
                                     ZStack {
                                         Rectangle()
-                                            .fill(Color(hex: "#9D9C9C14"))
+                                            .fill(AppColors.spanishGrayPlus)
                                             .frame(width: 358, height: 72)
                                             .cornerRadius(12)
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 12)
-                                                    .stroke(Color(hex: "#C83E3E"), lineWidth: selectedRectangle == 1 ? 2 : 0)
+                                                    .stroke(AppColors.watermelonRed, lineWidth: selectedRectangle == 1 ? 2 : 0)
                                             )
                                             .onTapGesture {
                                                 selectedRectangle = 1
@@ -67,17 +67,17 @@ struct PaywallView: View {
                                                     .font(.system(size: 17, weight: .regular))
                                                 Text("$19 per week")
                                                     .font(.system(size: 12, weight: .regular))
-                                                    .foregroundStyle(Color(hex: "#8D929B"))
+                                                    .foregroundStyle(AppColors.spanishGray)
                                             }
                                             .padding()
                                             Spacer()
                                             VStack(alignment: .trailing) {
                                                 Text("$19.99")
                                                     .font(.system(size: 17, weight: .bold))
-                                                    .foregroundStyle(Color(hex: "#C83E3E"))
+                                                    .foregroundStyle(AppColors.watermelonRed)
                                                 Text("per week")
                                                     .font(.system(size: 12, weight: .regular))
-                                                    .foregroundStyle(Color(hex: "#222222"))
+                                                    .foregroundStyle(AppColors.raisinBlack)
                                             }
                                             .padding()
                                         }
@@ -87,10 +87,10 @@ struct PaywallView: View {
                                                 Spacer()
                                                 Text("SAVE 40%")
                                                     .font(.system(size: 11, weight: .regular))
-                                                    .foregroundColor(Color(hex: "#222222"))
+                                                    .foregroundColor(AppColors.raisinBlack)
                                                     .padding(.vertical, 4)
                                                     .padding(.horizontal, 12)
-                                                    .background(Color(hex: "#FFE500"))
+                                                    .background(AppColors.vividYellow)
                                                     .cornerRadius(8)
                                                     .padding(.top, -10)
                                                     .padding(.trailing, 10)
@@ -103,12 +103,12 @@ struct PaywallView: View {
                                 VStack {
                                     ZStack {
                                         Rectangle()
-                                            .fill(Color(hex: "#9D9C9C14"))
+                                            .fill(AppColors.spanishGrayPlus)
                                             .frame(width: 358, height: 72)
                                             .cornerRadius(12)
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 12)
-                                                    .stroke(Color(hex: "#C83E3E"), lineWidth: selectedRectangle == 2 ? 2 : 0)
+                                                    .stroke(AppColors.watermelonRed, lineWidth: selectedRectangle == 2 ? 2 : 0)
                                             )
                                             .onTapGesture {
                                                 selectedRectangle = 2
@@ -119,17 +119,17 @@ struct PaywallView: View {
                                                     .font(.system(size: 17, weight: .regular))
                                                 Text("$19 per week")
                                                     .font(.system(size: 12, weight: .regular))
-                                                    .foregroundStyle(Color(hex: "#222222"))
+                                                    .foregroundStyle(AppColors.raisinBlack)
                                             }
                                             .padding()
                                             Spacer()
                                             VStack(alignment: .trailing) {
                                                 Text("$19.99")
                                                     .font(.system(size: 17, weight: .bold))
-                                                    .foregroundStyle(Color(hex: "#222222"))
+                                                    .foregroundStyle(AppColors.raisinBlack)
                                                 Text("per week")
                                                     .font(.system(size: 12, weight: .regular))
-                                                    .foregroundStyle(Color(hex: "#222222"))
+                                                    .foregroundStyle(AppColors.raisinBlack)
                                             }
                                             .padding()
                                             
@@ -144,14 +144,14 @@ struct PaywallView: View {
                     VStack {
                         ZStack {
                             Rectangle()
-                                .fill(Color(hex: "#FFFFFFF0"))
+                                .fill(AppColors.whitePlus)
                                 .frame(width: UIScreen.main.bounds.width, height: 200)
   
                             VStack {
                                 HStack {
                                     Image(systemName: "clock.arrow.circlepath")
                                     Text("Cancel Anytime")
-                                }.foregroundStyle(Color(hex: "#8D929B"))
+                                }.foregroundStyle(AppColors.spanishGray)
                                     .font(.system(size: 12, weight: .regular))
                                     .padding()
                             Button(action: {
@@ -163,9 +163,9 @@ struct PaywallView: View {
                             })
                             {
                                 Text("Label")
-                                    .foregroundStyle(Color(hex: "#FFFFFF"))
+                                    .foregroundStyle(AppColors.white)
                                     .frame(width: 358, height: 48)
-                                    .background(Color(hex: "#222222"))
+                                    .background(AppColors.raisinBlack)
                                     .cornerRadius(24)
                             }
                                 HStack() {
@@ -177,7 +177,7 @@ struct PaywallView: View {
                                     Text("Terms of Use")
                                 }
                                 .frame(width: UIScreen.main.bounds.width / 1.2)
-                                .foregroundStyle(Color(hex: "#8D929B"))
+                                .foregroundStyle(AppColors.spanishGray)
                                 .font(.system(size: 11, weight: .regular))
                                 .padding()
                         }

@@ -30,6 +30,7 @@
 		495CA6782DF7D95D0009925B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495CA65F2DF7D95D0009925B /* TabBarView.swift */; };
 		495CA6792DF7D95D0009925B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495CA6562DF7D95D0009925B /* MainView.swift */; };
 		495CA67A2DF7D95D0009925B /* TabBarVisibilityPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495CA6602DF7D95D0009925B /* TabBarVisibilityPreferenceKey.swift */; };
+		495CA6822DF973720009925B /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495CA6812DF973720009925B /* AppColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		495CA65F2DF7D95D0009925B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		495CA6602DF7D95D0009925B /* TabBarVisibilityPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVisibilityPreferenceKey.swift; sourceTree = "<group>"; };
 		495CA6612DF7D95D0009925B /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
+		495CA6812DF973720009925B /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -146,6 +148,7 @@
 				495CA6622DF7D95D0009925B /* Views */,
 				49424C852D933A4D00E08727 /* Assets.xcassets */,
 				49424C832D933A4D00E08727 /* Preview Assets.xcassets */,
+				495CA6812DF973720009925B /* AppColors.swift */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				495CA6722DF7D95D0009925B /* CustomNavigationBar.swift in Sources */,
 				495CA6732DF7D95D0009925B /* ImageSaver.swift in Sources */,
 				495CA6742DF7D95D0009925B /* TabBarState.swift in Sources */,
+				495CA6822DF973720009925B /* AppColors.swift in Sources */,
 				495CA6752DF7D95D0009925B /* ProfileViewModel.swift in Sources */,
 				495CA6762DF7D95D0009925B /* SearchTextField.swift in Sources */,
 				495CA6772DF7D95D0009925B /* ImageStorySaver.swift in Sources */,

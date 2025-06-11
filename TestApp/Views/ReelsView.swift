@@ -28,7 +28,7 @@ struct ReelsView: View {
                         Image(systemName: "arrow.down.to.line")
                             .foregroundStyle(.white)
                             .frame(width: 32, height: 32)
-                            .background(Color(hex: "#00000066"))
+                            .background(AppColors.blackPlus)
                             .cornerRadius(8)
                     }.padding()
                         .alert(isPresented: $showAlert) {

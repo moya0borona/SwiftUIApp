@@ -59,7 +59,7 @@ struct OpenProfileView: View {
                                 VStack {
                                     Text(user.name)
                                         .font(.system(size: 16, weight: .regular))
-                                        .foregroundStyle(Color(hex: "#191919"))
+                                        .foregroundStyle(AppColors.eerieBlack)
                                         .fontWeight(.bold)
                                     
                                     Text("@\(user.name)")
@@ -69,18 +69,18 @@ struct OpenProfileView: View {
                                 .padding()
                             }
                             .frame(width: 169, height: 52, alignment: .leading)
-                            .background(Color(hex: "#9D9C9C14"))
+                            .background(AppColors.spanishGrayPlus)
                             .cornerRadius(10)
                             Button {
                                 print("Edit button was tapped")
                             } label: {
                                 HStack {
                                     Image(systemName: "bookmark.fill")
-                                        .foregroundStyle(Color(hex: "#C83E3E"))
+                                        .foregroundStyle(AppColors.watermelonRed)
                                 }
                             }
                             .frame(width: 52, height: 52, alignment: .center)
-                            .background(Color(hex: "#9D9C9C14"))
+                            .background(AppColors.spanishGrayPlus)
                             .cornerRadius(10)
                         }
                         VStack {
@@ -91,14 +91,13 @@ struct OpenProfileView: View {
                                     Text("Save avatar")
                                         .font(.system(size: 17, weight: .regular))
                                         .fontWeight(.bold)
-                                        .foregroundStyle(Color(hex: "#C83E3E"))
+                                        .foregroundStyle(AppColors.watermelonRed)
                                     Image(systemName: "arrow.down.to.line")
-                                        .foregroundStyle(Color(hex: "#C83E3E"))
-                                    
+                                        .foregroundStyle(AppColors.watermelonRed)
                                 }
                             }
                             .frame(width: 229, height: 48, alignment: .center)
-                            .background(Color(hex: "#9D9C9C14"))
+                            .background(AppColors.spanishGrayPlus)
                             .cornerRadius(10)
                         }
                     }

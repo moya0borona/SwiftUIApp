@@ -36,7 +36,7 @@ struct TabBarView: View {
                             }
                         }
                         .frame(width: 358, height: 66)
-                        .background(Color(hex: "#070A0F0A"))
+                        .background(AppColors.richBlackPlus)
                         .cornerRadius(10)
                 }
             }
@@ -65,7 +65,7 @@ struct BarItem: View {
                     Text(tab)
                         .font(.caption2)
                 }
-                .foregroundColor(tabSelection == tab ? Color(hex: "#191919") : Color(hex: "#070A0F66"))
+                .foregroundColor(tabSelection == tab ? AppColors.eerieBlack : AppColors.richBlackPlusAlpha)
             }
         }
     }
